@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +17,36 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
+});
+
+
+Route::prefix('v1')->middleware(['CORS'])->group(function () {
+  //Login
+  Route::prefix("auth")->group(function () {
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    
+    //Register
+    Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
+    //Google Login
+    //Route::get('google/url', [GoogleController::class, 'loginUrl']);
+    //Route::post('google/callback', [GoogleController::class, 'loginCallback']);
+
+    //Recover Password
+    //Route::post('recover-password', [ForgotPasswordController::class, 'recoverPassword']);
+    //Route::post('reset-password', [ResetPasswordController::class, 'resetPassword']);
+
+    //Verify token
+    //Route::post('verify-token', [ResetPasswordController::class, 'verifyUserRequestToken']);
+  });
+
+  //Protected routes
+  Route::middleware(['check.request.token'])->group(function () {
+    //Ghosts
+    /* Route::prefix('ghosts')->group(function () {
+      Route::get('/', [GhostController::class, 'allGhosts']);
+    }); */
+
+  });
 });
