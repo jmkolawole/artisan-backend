@@ -37,6 +37,7 @@ class LoginService
 
     return [
       'username' => $user->username,
+      'id' => $user->id,
       'email' => $user->email,
       'name' => $user->firstname . ' ' . $user->last_name,
       //'image' => $rolesPermissions['user_data']->profile_image,
