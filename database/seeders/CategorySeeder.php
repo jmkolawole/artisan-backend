@@ -16,12 +16,12 @@ class CategorySeeder extends Seeder
   {
     //
     $carpenter = new Category();
-    $carpenter->name = 'Carpenter';
+    $carpenter->name = 'Carpenters';
     $carpenter->file_required = 3;
     $carpenter->save();
 
     $plumber = new Category();
-    $plumber->name = 'Plumber';
+    $plumber->name = 'Plumbers';
     $plumber->file_required = 2;
     $plumber->save();
   }

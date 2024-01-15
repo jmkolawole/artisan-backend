@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,11 +44,13 @@ Route::prefix('v1')->middleware(['CORS'])->group(function () {
   });
 
   //Protected routes
-  Route::middleware(['check.request.token'])->group(function () {
-    //Ghosts
-    /* Route::prefix('ghosts')->group(function () {
-      Route::get('/', [GhostController::class, 'allGhosts']);
-    }); */
+  /* Route::middleware(['check.request.token'])->group(function () {
 
-  });
+    
+  
+
+  }); */
+  Route::get('/categories', [CategoryController::class, 'categories'])->name('categories');
+
+  Route::get('/users', [UserController::class, 'users'])->name('users');
 });
