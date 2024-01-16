@@ -50,7 +50,7 @@ class UserController extends Controller
     }
     $userdata = UserData::where('id', $id)->first();
     $userdata->first_name = $request->first_name;
-    $userdata->last_name = $request->first_name;
+    $userdata->last_name = $request->last_name;
     $userdata->phone = $request->phone;
     $userdata->location = $request->location;
     $userdata->category_id = $request->category_id;

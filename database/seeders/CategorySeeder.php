@@ -31,7 +31,7 @@ class CategorySeeder extends Seeder
     $supervisors->save();
 
     $plumbers = new Category();
-    $plumbers->name = 'Gas Installers';
+    $plumbers->name = 'Plumbers';
     $plumbers->file_required = 1;
     $plumbers->save();
 
