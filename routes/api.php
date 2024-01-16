@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->middleware(['CORS'])->group(function () {
   //Login
+  Route::get('/image/{filename}', [ImageController::class, 'image'])->name('image');
   Route::prefix("auth")->group(function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     
@@ -53,6 +55,8 @@ Route::prefix('v1')->middleware(['CORS'])->group(function () {
   Route::get('/categories', [CategoryController::class, 'categories'])->name('categories');
 
   Route::get('/users', [UserController::class, 'users'])->name('users');
+
+  Route::get('/users/{id}', [UserController::class, 'profile'])->name('profile');
 
   //Upload items
   Route::post('/user/update/{id}', [UserController::class, 'update'])->name('update');

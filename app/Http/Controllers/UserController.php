@@ -18,10 +18,18 @@ class UserController extends Controller
     return $this->successResponse(($users));
   }
 
+  public function profile (Request $request) 
+  {
+    $id = $request->route('id');
+    $user = UserData::with('category', 'files')->where('id', $id)->first();
+    return $this->successResponse($user);
+  }
+
+  
   public function update(Request $request)
   {
     $id = $request->route('id');
-    /* if ($request->image1) {
+    if ($request->image1) {
       $image1_saved = $this->addImage($request->image1);
       $this->storeImg($id, $image1_saved);
     }
@@ -39,16 +47,18 @@ class UserController extends Controller
     if ($request->image4) {
       $image4_saved = $this->addImage($request->image4);
       $this->storeImg($id, $image4_saved);
-    } */
-    $userdata = new UserData();
+    }
+    $userdata = UserData::where('id', $id)->first();
     $userdata->first_name = $request->first_name;
     $userdata->last_name = $request->first_name;
-    $userdata->email = $request->email;
     $userdata->phone = $request->phone;
     $userdata->location = $request->location;
     $userdata->category_id = $request->category_id;
 
     
+    $userdata->save();
+
+    return $this->successResponse([], "Saved successfully");
 
   }
 
@@ -61,8 +71,7 @@ class UserController extends Controller
 
     $image_base64 = base64_decode($image_parts[1]);
     $uniqid = uniqid();
-    $file = $folderPath . $uniqid . '.' . $image_type;
-
+    $file = 'images/'.$uniqid . '.' . $image_type;
 
     file_put_contents($file, $image_base64);
 

@@ -23,6 +23,6 @@ class UserData extends Model
 
     public function files(): HasMany
     {
-        return $this->hasMany(UserFile::class,'id');
+        return $this->hasMany(UserFile::class,'user_id');
     }
 }
