@@ -34,21 +34,50 @@ class UserTableSeeder extends Seeder
     $uzo->is_admin = 1;
     $uzo->save();
 
-    $carpenter = new User();
-    $carpenter->firstname = 'Carpenter';
-    $carpenter->lastname = 'Carpenter';
-    $carpenter->username = 'carpenter';
-    $carpenter->email = 'carpenter@gmail.com';
-    $carpenter->password = bcrypt('Pa$$w0rd');
-    $carpenter->save();
+    $leif = new User();
+    $leif->firstname = 'Leif';
+    $leif->lastname = 'Garner';
+    $leif->username = 'leif';
+    $leif->email = 'leifgarner@gmail.com';
+    $leif->password = bcrypt('Pa$$w0rd');
+    $leif->save();
 
-    $plumber = new User();
-    $plumber->firstname = 'Plumber';
-    $plumber->lastname = 'Plumber';
-    $plumber->username = 'Plumber';
-    $plumber->email = 'plumber@gmail.com';
-    $plumber->password = bcrypt('Pa$$w0rd');
-    $plumber->save();
+
+    $hobert = new User();
+    $hobert->firstname = 'Hobert';
+    $hobert->lastname = 'Stevens';
+    $hobert->username = 'hobert';
+    $hobert->email = 'hobertst@gmail.com';
+    $hobert->password = bcrypt('Pa$$w0rd');
+    $hobert->save();
+
+
+    $otha = new User();
+    $otha->firstname = 'Otha';
+    $otha->lastname = 'Lee';
+    $otha->username = 'lee';
+    $otha->email = 'otha@gmail.com';
+    $otha->password = bcrypt('Pa$$w0rd');
+    $otha->save();
+
+    
+
+    $moh = new User();
+    $moh->firstname = 'Mohammed';
+    $moh->lastname = 'Harmon';
+    $moh->username = 'harmon';
+    $moh->email = 'mohammed@gmail.com';
+    $moh->password = bcrypt('Pa$$w0rd');
+    $moh->save();
+    
+
+    $felix = new User();
+    $felix->firstname = 'Felix';
+    $felix->lastname = 'Chan';
+    $felix->username = 'felix';
+    $felix->email = 'felix@gmail.com';
+    $felix->password = bcrypt('Pa$$w0rd');
+    $felix->save();
     
   }
 }

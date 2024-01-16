@@ -15,14 +15,26 @@ class CategorySeeder extends Seeder
   public function run()
   {
     //
-    $carpenter = new Category();
-    $carpenter->name = 'Carpenters';
-    $carpenter->file_required = 3;
-    $carpenter->save();
+    $electricians = new Category();
+    $electricians->name = 'Electricians';
+    $electricians->file_required = 3;
+    $electricians->save();
 
-    $plumber = new Category();
-    $plumber->name = 'Plumbers';
-    $plumber->file_required = 2;
-    $plumber->save();
+    $installers = new Category();
+    $installers->name = 'Gas Installers';
+    $installers->file_required = 2;
+    $installers->save();
+
+    $supervisors = new Category();
+    $supervisors->name = 'Mechanical Supervisors';
+    $supervisors->file_required = 3;
+    $supervisors->save();
+
+    $plumbers = new Category();
+    $plumbers->name = 'Gas Installers';
+    $plumbers->file_required = 1;
+    $plumbers->save();
+
+
   }
 }

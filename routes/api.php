@@ -53,4 +53,7 @@ Route::prefix('v1')->middleware(['CORS'])->group(function () {
   Route::get('/categories', [CategoryController::class, 'categories'])->name('categories');
 
   Route::get('/users', [UserController::class, 'users'])->name('users');
+
+  //Upload items
+  Route::post('/user/update/{id}', [UserController::class, 'update'])->name('update');
 });

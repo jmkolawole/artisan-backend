@@ -15,13 +15,13 @@ class CreateUserDataTable extends Migration
   {
     Schema::create('user_data', function (Blueprint $table) {
       $table->unsignedBigInteger('id')->primary();
-      $table->string('first_name');
-      $table->string('last_name');
+      $table->string('first_name')->nullable();
+      $table->string('last_name')->nullable();
       $table->string('email')->unique();
       $table->unsignedSmallInteger('category_id')->nullable();
-      $table->integer('age');
-      $table->string('sex');
-      $table->string('phone');
+      $table->string('location')->nullable();
+      $table->string('phone')->nullable();
+      $table->string('is_admin')->default(0);
       $table->timestamps();
 
       $table->foreign('category_id')->references('id')->on('categories');
